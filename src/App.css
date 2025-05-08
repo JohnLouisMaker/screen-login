@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.gradient-background {
+  background: linear-gradient(
+    99deg,
+    #007a7a,
+    #00a3a3,
+    #08fbfb,
+    #05f7cf,
+    #05c0a1,
+    #04927b
+  );
+  background-size: 360% 360%;
+  animation: gradient-animation 20s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
