@@ -1,0 +1,98 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Ana Silva",
+      "email": "ana@exemplo.com",
+      "password": "senha123",
+      "role": "admin",
+      "avatar": "https://i.pravatar.cc/150?img=1"
+    },
+    {
+      "id": 2,
+      "name": "Carlos Oliveira",
+      "email": "carlos@exemplo.com",
+      "password": "abc456",
+      "role": "user",
+      "avatar": "https://i.pravatar.cc/150?img=2"
+    },
+    {
+      "id": 3,
+      "name": "Mariana Souza",
+      "email": "mariana@exemplo.com",
+      "password": "mari789",
+      "role": "user",
+      "avatar": "https://i.pravatar.cc/150?img=3"
+    },
+    {
+      "id": 4,
+      "name": "Pedro Costa",
+      "email": "pedro@exemplo.com",
+      "password": "pedro2024",
+      "role": "user",
+      "avatar": "https://i.pravatar.cc/150?img=4"
+    },
+    {
+      "id": 5,
+      "name": "Luiza Fernandes",
+      "email": "luiza@exemplo.com",
+      "password": "lulu567",
+      "role": "editor",
+      "avatar": "https://i.pravatar.cc/150?img=5"
+    },
+    {
+      "id": 6,
+      "name": "Rafael Santos",
+      "email": "rafael@exemplo.com",
+      "password": "rafa123",
+      "role": "user",
+      "avatar": "https://i.pravatar.cc/150?img=6"
+    },
+    {
+      "id": 7,
+      "name": "Juliana Lima",
+      "email": "juliana@exemplo.com",
+      "password": "ju2024",
+      "role": "user",
+      "avatar": "https://i.pravatar.cc/150?img=7"
+    },
+    {
+      "id": 8,
+      "name": "Bruno Almeida",
+      "email": "bruno@exemplo.com",
+      "password": "bruno123",
+      "role": "editor",
+      "avatar": "https://i.pravatar.cc/150?img=8"
+    },
+    {
+      "id": 9,
+      "name": "Fernanda Gomes",
+      "email": "fernanda@exemplo.com",
+      "password": "fer456",
+      "role": "user",
+      "avatar": "https://i.pravatar.cc/150?img=9"
+    },
+    {
+      "id": 10,
+      "name": "Lucas Ribeiro",
+      "email": "lucas@exemplo.com",
+      "password": "lucas789",
+      "role": "user",
+      "avatar": "https://i.pravatar.cc/150?img=10"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "Como aprender React",
+      "content": "Primeiros passos para dominar React...",
+      "authorId": 1
+    },
+    {
+      "id": 2,
+      "title": "Dicas de CSS",
+      "content": "Use Tailwind para agilizar seu desenvolvimento!",
+      "authorId": 3
+    }
+  ]
+}
