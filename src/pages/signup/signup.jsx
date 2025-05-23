@@ -61,7 +61,7 @@ export default function Signup() {
           className="mx-auto text-lg w-40 h-9 bg-white text-teal-700 rounded-2xl 
           hover:bg-gray-200 transition-all ease-in-out duration-250"
         >
-          Registrar
+          Registrar 
         </button>
       </form>
     </div>
