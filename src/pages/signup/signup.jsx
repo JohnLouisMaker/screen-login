@@ -1,69 +1,134 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Footer from "../../components/footer";
 
 export default function Signup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");  
+  const [message, setMessage] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSignup = (e) => {
     e.preventDefault();
-    console.log("Nome:", name);
-    console.log("Email:", email);
-    console.log("Senha:", password);
+    setMessage("");
 
+    if (!name.trim() || !email.trim() || !password || !confirmPassword) {
+      setMessage("Por favor, preencha todos os campos.");
+      return;
+    }
+
+    if (!email.includes("@")) {
+      setMessage("Por favor, insira um email válido.");
+      return;
+    }
+
+    if (password.length < 6) {
+      setMessage("A senha deve ter pelo menos 6 caracteres.");
+      return;
+    }
+
+    if (password !== confirmPassword) { 
+      setMessage("As senhas não conferem.");
+      return;
+    }
+
+    fetch("http://localhost:3000/users", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, password }),
+    })
+      .then((response) => {
+        if (!response.ok)
+          throw new Error("Erro ao criar conta. Tente novamente.");
+        return response.json();
+      })
+      .then((data) => {
+        setMessage(`Conta ${data.name} criada com sucesso!`);
+        setName("");
+        setEmail("");
+        setPassword("");
+        setConfirmPassword("");  
+        navigate("/dashboard"); 
+      })
+      .catch((error) => {
+        setMessage(error.message);
+      });
   };
 
   return (
-    <div className="gradient-background h-screen flex flex-col">
-      <nav className="flex justify-end mt-8 mr-24">
-        <ul className="text-white text-xl">
+    <div className="gradient-background min-h-screen flex flex-col text-white px-4 pb-16">
+      <nav className="flex justify-end px-4 py-6">
+
+        <ul className="flex gap-4 sm:text-lg lg:text-2xl">
           <li className="hover:border-b-2 transition-all ease-in-out duration-75">
-            <Link to="/screen-login">Já tem conta?</Link>
+            <Link to="/login">Já tem conta?</Link>
           </li>
         </ul>
       </nav>
 
-      <h1 className="text-center text-4xl font-light text-white mt-24">
-        Criar Conta
-      </h1>
+      <div className="mb-6"></div>
 
-      <form onSubmit={handleSignup} className="flex flex-col max-w-md w-full mx-auto mt-30">
-        <input
-          type="text"
-          placeholder="Nome"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="mb-8 border-b-2 text-white text-2xl placeholder-teal-100 border-teal-400 
-          focus:outline-none focus:border-white focus:placeholder-white 
-          transition-all ease-in-out duration-200"
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="mb-8 border-b-2 text-white text-2xl placeholder-teal-100 border-teal-400 
-          focus:outline-none focus:border-white focus:placeholder-white 
-          transition-all ease-in-out duration-200"
-        />
-        <input
-          type="password"
-          placeholder="Senha"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="mb-10 border-b-2 text-white text-2xl placeholder-teal-100 border-teal-400 
-          focus:outline-none focus:border-white focus:placeholder-white 
-          transition-all ease-in-out duration-200"
-        />
-        <button
-          type="submit"
-          className="mx-auto text-lg w-40 h-9 bg-white text-teal-700 rounded-2xl 
-          hover:bg-gray-200 transition-all ease-in-out duration-250"
-        >
-          Registrar 
-        </button>
-      </form>
+      <div className="flex-grow flex justify-center items-center px-2">
+        <div className="bg-teal-700/20 backdrop-blur-3xl rounded-2xl py-8 px-6 w-full sm:max-w-md shadow-lg">
+          <h2 className="text-2xl sm:text-3xl text-center mb-10 font-light">
+            Criar Conta
+          </h2>
+
+          <form onSubmit={handleSignup} className="flex flex-col w-full">
+            <input
+              type="text"
+              placeholder="Nome"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="mb-6 border-b-2 text-white text-xl placeholder-teal-100 border-teal-400 
+              focus:outline-none focus:border-white focus:placeholder-white 
+              transition-all ease-in-out duration-200"
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="mb-6 border-b-2 text-white text-xl placeholder-teal-100 border-teal-400 
+              focus:outline-none focus:border-white focus:placeholder-white 
+              transition-all ease-in-out duration-200"
+            />
+            <input
+              type="password"
+              placeholder="Senha"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="mb-6 border-b-2 text-white text-xl placeholder-teal-100 border-teal-400 
+              focus:outline-none focus:border-white focus:placeholder-white 
+              transition-all ease-in-out duration-200"
+            />
+            <input  // input novo do confirm password
+              type="password"
+              placeholder="Confirmar Senha"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              className="mb-8 border-b-2 text-white text-xl placeholder-teal-100 border-teal-400 
+              focus:outline-none focus:border-white focus:placeholder-white 
+              transition-all ease-in-out duration-200"
+            />
+            <button
+              type="submit"
+              className="w-full sm:w-40 h-10 bg-white text-teal-700 rounded-2xl mx-auto
+              hover:bg-gray-200 transition-all ease-in-out duration-250"
+            >
+              Registrar
+            </button>
+
+            {message && (
+              <p className="text-center mt-6 text-white font-semibold">{message}</p>
+            )}
+          </form>
+        </div>
+      </div>
+      <Footer />
     </div>
   );
 }

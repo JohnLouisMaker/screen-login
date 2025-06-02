@@ -1,95 +1,123 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Ana Silva",
       "email": "ana@exemplo.com",
-      "password": "senha123",
-      "role": "admin",
-      "avatar": "https://i.pravatar.cc/150?img=1"
+      "password": "senha123"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Carlos Oliveira",
       "email": "carlos@exemplo.com",
-      "password": "abc456",
-      "role": "user",
-      "avatar": "https://i.pravatar.cc/150?img=2"
+      "password": "abc456"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Mariana Souza",
       "email": "mariana@exemplo.com",
-      "password": "mari789",
-      "role": "user",
-      "avatar": "https://i.pravatar.cc/150?img=3"
+      "password": "mari789"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Pedro Costa",
       "email": "pedro@exemplo.com",
-      "password": "pedro2024",
-      "role": "user",
-      "avatar": "https://i.pravatar.cc/150?img=4"
+      "password": "pedro2024"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Luiza Fernandes",
       "email": "luiza@exemplo.com",
-      "password": "lulu567",
-      "role": "editor",
-      "avatar": "https://i.pravatar.cc/150?img=5"
+      "password": "lulu567"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Rafael Santos",
       "email": "rafael@exemplo.com",
-      "password": "rafa123",
-      "role": "user",
-      "avatar": "https://i.pravatar.cc/150?img=6"
+      "password": "rafa123"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Juliana Lima",
       "email": "juliana@exemplo.com",
-      "password": "ju2024",
-      "role": "user",
-      "avatar": "https://i.pravatar.cc/150?img=7"
+      "password": "ju2024"
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Bruno Almeida",
       "email": "bruno@exemplo.com",
-      "password": "bruno123",
-      "role": "editor",
-      "avatar": "https://i.pravatar.cc/150?img=8"
+      "password": "bruno123"
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Fernanda Gomes",
       "email": "fernanda@exemplo.com",
-      "password": "fer456",
-      "role": "user",
-      "avatar": "https://i.pravatar.cc/150?img=9"
+      "password": "fer456"
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "Lucas Ribeiro",
       "email": "lucas@exemplo.com",
-      "password": "lucas789",
-      "role": "user",
-      "avatar": "https://i.pravatar.cc/150?img=10"
+      "password": "lucas789"
+    },
+    {
+      "id": "1620",
+      "name": "J",
+      "email": "Joa@ga",
+      "password": "123456"
+    },
+    {
+      "id": "bf98",
+      "name": "Alonso",
+      "email": "Fernando@dLDW0",
+      "password": "624626"
+    },
+    {
+      "id": "1616",
+      "name": "LOEI",
+      "email": "3rbrt@hrhsh",
+      "password": "rq3r35"
+    },
+    {
+      "id": "19c3",
+      "name": "Alo",
+      "email": "etetwt@ganmdl",
+      "password": "231312"
+    },
+    {
+      "id": "907e",
+      "name": "111111111111111111111",
+      "email": "111111111111111111111@gmail",
+      "password": "11111111111111111111"
+    },
+    {
+      "id": "7e6f",
+      "name": "wyywy",
+      "email": "3115@hsbfb",
+      "password": "lkhjgfd"
+    },
+    {
+      "id": "33dd",
+      "name": "WFAWF",
+      "email": "WFWAWA@GMAIL.COM",
+      "password": "123456"
+    },
+    {
+      "id": "83b8",
+      "name": "johnlouis",
+      "email": "louis@gamil.com",
+      "password": "1234567"
     }
   ],
   "posts": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Como aprender React",
       "content": "Primeiros passos para dominar React...",
       "authorId": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Dicas de CSS",
       "content": "Use Tailwind para agilizar seu desenvolvimento!",
       "authorId": 3
