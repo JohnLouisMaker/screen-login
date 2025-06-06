@@ -30,3 +30,27 @@
     background-position: 0% 50%;
   }
 }
+
+@layer utilities {
+  textarea::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  textarea::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  textarea::-webkit-scrollbar-thumb {
+    background-color: #ffffff; 
+    border-radius: 6px;
+  }
+}
+
+@font-face {
+  font-family: "Unageo";
+  src: url("../src/assets/fonts/Unageo-Medium.ttf") format("truetype");
+}
+
+@theme{
+  --font-unageo: "Unageo", sans-serif;
+}

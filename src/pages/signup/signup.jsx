@@ -6,7 +6,7 @@ export default function Signup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");  
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
 
   const navigate = useNavigate();
@@ -15,6 +15,7 @@ export default function Signup() {
     e.preventDefault();
     setMessage("");
 
+    // Validações básicas
     if (!name.trim() || !email.trim() || !password || !confirmPassword) {
       setMessage("Por favor, preencha todos os campos.");
       return;
@@ -30,11 +31,12 @@ export default function Signup() {
       return;
     }
 
-    if (password !== confirmPassword) { 
+    if (password !== confirmPassword) {
       setMessage("As senhas não conferem.");
       return;
     }
 
+    // Requisição POST para o JSON Server
     fetch("http://localhost:3000/users", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -47,11 +49,13 @@ export default function Signup() {
       })
       .then((data) => {
         setMessage(`Conta ${data.name} criada com sucesso!`);
+        // Limpa os campos
         setName("");
         setEmail("");
         setPassword("");
-        setConfirmPassword("");  
-        navigate("/dashboard"); 
+        setConfirmPassword("");
+        // Navega para o dashboard
+        navigate("/dashboard");
       })
       .catch((error) => {
         setMessage(error.message);
@@ -59,10 +63,12 @@ export default function Signup() {
   };
 
   return (
-    <div className="gradient-background min-h-screen flex flex-col text-white px-4 pb-16">
-      <nav className="flex justify-end px-4 py-6">
-
-        <ul className="flex gap-4 sm:text-lg lg:text-2xl">
+    <div className="gradient-background min-h-screen flex flex-col text-white px-4 pb-16 font-unageo">
+      <nav className="flex justify-between px-4 py-6">
+        <h1 className="text-2xl sm:text-4xl lg:text-4xl font-bold">
+          <Link to="/">TaskZen</Link>
+        </h1>
+        <ul className="flex gap-4 text-xl lg:text-2xl">
           <li className="hover:border-b-2 transition-all ease-in-out duration-75">
             <Link to="/login">Já tem conta?</Link>
           </li>
@@ -83,8 +89,8 @@ export default function Signup() {
               placeholder="Nome"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="mb-6 border-b-2 text-white text-xl placeholder-teal-100 border-teal-400 
-              focus:outline-none focus:border-white focus:placeholder-white 
+              className="mb-6 border-b-2 text-white text-xl placeholder-teal-100 border-teal-400
+              focus:outline-none focus:border-white focus:placeholder-white
               transition-all ease-in-out duration-200"
             />
             <input
@@ -92,8 +98,8 @@ export default function Signup() {
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="mb-6 border-b-2 text-white text-xl placeholder-teal-100 border-teal-400 
-              focus:outline-none focus:border-white focus:placeholder-white 
+              className="mb-6 border-b-2 text-white text-xl placeholder-teal-100 border-teal-400
+              focus:outline-none focus:border-white focus:placeholder-white
               transition-all ease-in-out duration-200"
             />
             <input
@@ -101,17 +107,17 @@ export default function Signup() {
               placeholder="Senha"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="mb-6 border-b-2 text-white text-xl placeholder-teal-100 border-teal-400 
-              focus:outline-none focus:border-white focus:placeholder-white 
+              className="mb-6 border-b-2 text-white text-xl placeholder-teal-100 border-teal-400
+              focus:outline-none focus:border-white focus:placeholder-white
               transition-all ease-in-out duration-200"
             />
-            <input  // input novo do confirm password
+            <input
               type="password"
               placeholder="Confirmar Senha"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              className="mb-8 border-b-2 text-white text-xl placeholder-teal-100 border-teal-400 
-              focus:outline-none focus:border-white focus:placeholder-white 
+              className="mb-8 border-b-2 text-white text-xl placeholder-teal-100 border-teal-400
+              focus:outline-none focus:border-white focus:placeholder-white
               transition-all ease-in-out duration-200"
             />
             <button
@@ -123,7 +129,9 @@ export default function Signup() {
             </button>
 
             {message && (
-              <p className="text-center mt-6 text-white font-semibold">{message}</p>
+              <p className="text-center mt-6 text-white font-semibold">
+                {message}
+              </p>
             )}
           </form>
         </div>

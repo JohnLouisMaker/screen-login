@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 
-
 import Home from "./pages/home/home";
 import Login from "./pages/login/login";
 import Signup from "./pages/signup/signup";
@@ -10,14 +9,13 @@ import Task from "./pages/task/task";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/screen-login">
       <Routes>
-     
-        <Route path="/screen-login" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/password" element={<Password />} />
-        <Route path="/screen-login/dashboard" element={<Task />} />
+        <Route path="/" element={<Home />} />
+        <Route path="login" element={<Login />} />
+        <Route path="signup" element={<Signup />} />
+        <Route path="password" element={<Password />} />
+        <Route path="dashboard" element={<Task />} />
       </Routes>
     </BrowserRouter>
   );

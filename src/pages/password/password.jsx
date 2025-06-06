@@ -52,11 +52,11 @@ export default function Password() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col gradient-background text-white px-4">
+    <div className="min-h-screen flex flex-col font-unageo gradient-background text-white px-4">
 
-      <nav className="flex flex-wrap justify-between items-center gap-4 px-4 py-6">
-      
-        <ul className="flex gap-4 sm:text-lg lg:text-2xl">
+      <nav className="flex flex-wrap justify-end items-center gap-4 px-4 py-6">
+
+        <ul className="flex gap-4 text-xl md:text-2xl">
           <li className="hover:border-b-2 transition-all ease-in-out duration-75">
             <Link to="/login">Login</Link>
           </li>
